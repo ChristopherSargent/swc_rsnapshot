@@ -1,6 +1,6 @@
 ![alt text](swclogo.jpg)
 # swc_rsnapshot
-* This repository contains playbooks to install rsnapshot on RHEL8 and back a known good configuration of /etc using rsnapshot, it also will restore files changed post alpha0 and restore any modified files and save off the files that were changed. For any additional details or inquiries, please contact us at christopher.sargent@railhead.io.
+* This repository contains playbooks to install rsnapshot on RHEL8 and backup a known good configuration of /etc using rsnapshot, it also will restore files changed post alpha0 and restore any modified files and save off the files that were changed. For any additional details or inquiries, please contact us at christopher.sargent@railhead.io.
 
 * [Rsnapshot](https://github.com/rsnapshot/rsnapshot)
 
