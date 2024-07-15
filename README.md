@@ -6,8 +6,8 @@
 
 # swc_rsnapshot_installer 
 * Run swc_rsnapshot_installer role to create a backup of known good /etc. Note that is stored at /.snapshots/alpha.0/localhost/etc/
-1. git clone
-2. cd 
+1. git clone git@github.com:ChristopherSargent/swc_rsnapshot.git
+2. cd swc_rsnapshot
 3. vim swc_rsnapshot.yml
 ```
 ---
