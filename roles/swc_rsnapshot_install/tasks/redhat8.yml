@@ -1,0 +1,36 @@
+---
+- name: Import RHEL8 EPEL GPG key
+  rpm_key:
+    state: present
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
+
+- name: Install RHEL8 EPEL repository
+  dnf:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm 
+    state: present
+
+- name: Install rsnapshot package
+  package:
+    name: rsnapshot
+    state: latest
+
+- name: Back up original rsnapshot.conf
+  copy:
+    src: /etc/rsnapshot.conf
+    dest: /etc/rsnapshot.conf.orig
+    remote_src: yes
+
+- name: Load custom rsnapshot.conf file
+  copy:
+    src: rsnapshot.conf
+    dest: /etc/rsnapshot.conf
+    owner: root
+    group: root
+    mode: 644
+
+- name: Test rsnapshot configuration
+  command: rsnapshot -c /etc/rsnapshot.conf configtest
+
+- name: Run rsnapshot
+  command: /usr/bin/rsnapshot alpha
+

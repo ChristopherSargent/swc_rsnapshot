@@ -1,0 +1,16 @@
+---
+  - name: swc_rsnapshot_restore
+    hosts: all
+    gather_facts: yes
+    become_user: root
+    tasks:
+#    - name: swc_rsnapshot_install
+#      include_role:
+#        name: swc_rsnapshot_install
+
+    - name: swc_rsnapshot_restore
+      include_role:
+        name: swc_rsnapshot_restore
+
+
+ 

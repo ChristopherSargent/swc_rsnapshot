@@ -1,0 +1,24 @@
+---
+- name: Find modified files in /etc
+  shell: |
+    mkdir -p /tmp/changed_files
+    diff -qr /etc /.snapshots/alpha.0/localhost/etc | grep -E "Only in /etc|Files" | awk '{if ($1 == "Only") print $4 "/" $5; else if ($1 == "Files") print $2}' | sed 's/://g' > /tmp/changed_files/list.txt
+  register: diff_output
+  ignore_errors: yes
+
+- name: Print processed list of modified files
+  shell: cat /tmp/changed_files/list.txt
+  register: list_txt_content
+
+- debug:
+    msg: "Processed list of modified files: {{ list_txt_content.stdout }}"
+
+- name: Save changed files for review
+  shell: |
+    cat /tmp/changed_files/list.txt | xargs -I {} sh -c 'mkdir -p /review/changed_files/$(dirname {}); cp {} /review/changed_files/{}'
+  when: list_txt_content.stdout_lines|length > 0
+
+- name: Restore modified files
+  shell: |
+    cat /tmp/changed_files/list.txt | xargs -I {} sh -c 'cp /.snapshots/alpha.0/localhost{} {}'
+  when: list_txt_content.stdout_lines|length > 0
