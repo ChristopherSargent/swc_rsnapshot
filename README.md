@@ -54,3 +54,5 @@
 ![Screenshot](resources/screenshot02.png)
 
 ![Screenshot](resources/screenshot03.png)
+
+9. verify your sshd_config and hosts file changes have been restored
