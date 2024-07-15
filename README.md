@@ -51,6 +51,7 @@
         name: swc_rsnapshot_restore
 ```
 8. Launch swc_rsnapshot to locate changed files, restore them and create a directory of the files that were modified post alpha.0
+* note debug prints files that were modified.
 
 ![Screenshot](resources/screenshot02.png)
 
