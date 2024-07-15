@@ -28,7 +28,9 @@
 5. Launch swc_rsnapshot to install epel and rsnapshot and create a backup of known good /etc located at /.snapshots/alpha.0/localhost/etc/
 
 ![Screenshot](resources/screenshot01.png)
-6. modify /etc/ssh/sshd_config
+
+6. modify /etc/ssh/sshd_config and /etc/hosts
+* for testing purposes
 
 7. vim swc_rsnapshot.yml
 ```
