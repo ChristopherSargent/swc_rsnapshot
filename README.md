@@ -32,6 +32,8 @@
 6. modify /etc/ssh/sshd_config and /etc/hosts
 * for testing purposes
 
+# swc_rsnapshot_restore
+* Note that the file that was modified from alpha.0 will be stored here for review /review/changed_files
 7. vim swc_rsnapshot.yml
 ```
 ---
@@ -49,7 +51,6 @@
         name: swc_rsnapshot_restore
 ```
 8. Launch swc_rsnapshot to locate changed files, restore them and create a directory of the files that were modified post alpha.0
-* Located at /review/changed_files
 
 ![Screenshot](resources/screenshot02.png)
 
